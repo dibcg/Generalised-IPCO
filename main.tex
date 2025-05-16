@@ -155,7 +155,9 @@
 
 \section{Directions}
  
- \newcommand{\quasipath}[2]{(#1,#2)\text{-path}\xspace}
+ \newcommand{\quasipath}[2]{(#1,#2)\text{-quasi path}\xspace}
+  \newcommand{\quasipaths}[2]{(#1,#2)\text{-quasi paths}\xspace}
+  
  \begin{lemma}\label{lem:series-parallel}
  	Let $G$ be a $K_4$-minor free graph, $v$ be any vertex, and $P$ be any isometric path. Then there is an isometric subgraph $H$ of $G$ with bounded pathwidth that contains $P$ and $r$.
  \end{lemma}
@@ -171,4 +173,17 @@
  	For an integer $k\geq 3$, characterise graphs that does not contain a cycle of order $k$ as a quasi-isometric minor.
  \end{Question}
  
+  For integers $a\geq 1,b\geq 0$, an $\quasipath{a}{b}$ is a graph $G$ that contains an $(a,b)$-quasi-isometric embedding of path. 
+ 
+ \begin{definition}[Possible generalisations of ipco-1]\label{def:1}
+ Strong quasi-isometric path complexity of a graph class $\mathcal{G}$ is the minimum integer $k$, such that for all $a\geq 1,b\geq 0$, there exist integers $A\geq 1,B\geq 0$ such that for all vertex $v\in V(G)$ and $\quasipath{a}{b}$ in $G$, there exists $k$-many $\quasipaths{A}{B}$ in $G$ containing $\{r\}\cup V(P)$. 
+ \end{definition}
+ 
+ \begin{definition}[Possible generalisations of ipco-2]\label{def:2}
+ 	``Strong quasi-isometric path cover width'' of a graph class $\mathcal{G}$ is the minimum integer $k$, such that for all $a\geq 1,b\geq 0$, there exist integers $A\geq 1,B\geq 0$ such that for all vertex $v\in V(G)$ and $\quasipath{a}{b}$ in $G$, there exists a graph $H$ in $G$ that contains $\{r\}\cup V(P)$ and admits an $(A,B)$-quasi-isometric embedding in a graph of pathwidth at most $k$. 
+ \end{definition}
+ 
+ \begin{Question}
+ 	Does \Cref{def:1} imply \Cref{def:2}?
+ \end{Question}
 \end{document}
