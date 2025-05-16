@@ -48,7 +48,7 @@
 
 \newcommand{\IPC}{\textsc{Isometric Path Cover}\xspace}
 \newcommand{\dist}[2]{\mathsf{d}\left(#1,#2\right)}
-\newcommand{\distG}[2]{\mathsf{d}_G\left(#1,#2\right)}
+\newcommand{\distG}[3]{\mathsf{d}_{#1}\left(#2,#3\right)}
 
 \newcommand{\cdiam}[2]{\Delta_{#1}\left(#2\right)}
 \newcommand{\parent}[1]{p\left(#1\right)}
@@ -137,7 +137,7 @@
 
   % \title{ Isometric path antichain covers: beyond hyperbolic graphs\thanks{This research was partially financed by the IFCAM project ``Applications of graph homomorphisms'' (MA/IFCAM/18/39), the ANR project GRALMECO (ANR-21-CE48-0004) and the French government IDEX-ISITE initiative 16-IDEX-0001 (CAP 20-25).}}
 
-    \title{Discussion on Generalising IPCO}
+    \title{Discussion on Generalising IPCO, quasi isometric embedding}
 
 
   
@@ -169,7 +169,7 @@
 
 \section{Directions}
  
- 
+ \newcommand{\quasipath}[2]{(#1,#2)\text{-path}\xspace}
  \begin{lemma}\label{lem:series-parallel}
  	Let $G$ be a series parallel graph, $v$ be any vertex, and $P$ be any isometric path. Then there is an isometric subgraph $H$ of $G$ with bounded pathwidth that contains $P$ and $r$.
  \end{lemma}
@@ -177,4 +177,12 @@
  \begin{Question}
  	Is it possible to use \Cref{lem:series-parallel} to show that $K_4$-asymptotic minor free graphs admit a quasi-isometry with additive distortion on $K_4$ minor free graphs?
  \end{Question}
+ 
+ For integers $a\geq 1,b\geq 0$, \emph{$(a,b)$-quasi-isometric embedding} of a graph $H$ in a graph $G$ is a map $f\colon V(H)\rightarrow V(G)$ such that for  $u,v\in V(H)$, $\frac{1}{a}\distG{H}{u}{v}+b\leq \distG{G}{f(a)}{f(b)} \leq a.\distG{H}{u}{v}+b$.
+ A graph class $\cal G$ contains a graph $H$, as a \emph{quasi-isometric minor} if for all $a\geq 1,b\geq 0$ there is a graph $G\in \mathcal{G}$ such that there is a  $(a,b)$-quasi-isometric embedding of $H$ in $G$. 
+ 
+ \begin{Question}
+ 	For an integer $k\geq 3$, characterise graphs that does not contain a cycle of order $k$ as a quasi-isometric minor.
+ \end{Question}
+ 
 \end{document}
