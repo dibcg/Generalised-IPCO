@@ -147,20 +147,6 @@
  \author{Dibyayan Chakraborty\footnote{School of Computer Science, University of Leeds, United Kingdom}
  \and Louis Esperet\footnote{GSCOP}}
 
-%\ccsdesc[100]{Theory of computation → Design and analysis of algorithms}
-
-%\keywords{Shortest paths, Isometric path cover, Chordal graph, Interval graph, AT-free graph, Approximation algorithm, FPT algorithm, Treewidth, Chordality, Treelength} %TODO mandatory; please add comma-separated list of keywords
-
-% \category{} %optional, e.g.\ invited paper
-
-% \relatedversion{} %optional, e.g.\ full version hosted on arXiv, HAL, or other respository/website
-%\relatedversion{A full version of the paper is available at \url{...}.}
-
-% \supplement{}%optional, e.g.\ related research data, source code, ... hosted on a repository like zenodo, figshare, GitHub, ...
-
-
-\newcommand{\linegraph}[1]{L\left(#1\right)}
-\newcommand{\powergraph}[2]{{#1}^{#2}}
 
 \date{}
 \begin{document}
@@ -171,11 +157,11 @@
  
  \newcommand{\quasipath}[2]{(#1,#2)\text{-path}\xspace}
  \begin{lemma}\label{lem:series-parallel}
- 	Let $G$ be a series parallel graph, $v$ be any vertex, and $P$ be any isometric path. Then there is an isometric subgraph $H$ of $G$ with bounded pathwidth that contains $P$ and $r$.
+ 	Let $G$ be a $K_4$-minor free graph, $v$ be any vertex, and $P$ be any isometric path. Then there is an isometric subgraph $H$ of $G$ with bounded pathwidth that contains $P$ and $r$.
  \end{lemma}
  
  \begin{Question}
- 	Is it possible to use \Cref{lem:series-parallel} to show that $K_4$-asymptotic minor free graphs admit a quasi-isometry with additive distortion on $K_4$ minor free graphs?
+ 	Is it possible to use \Cref{lem:series-parallel} to show that $K_4$-asymptotic minor free graphs admit a quasi-isometry with additive distortion on $K_4$-minor free graphs?
  \end{Question}
  
  For integers $a\geq 1,b\geq 0$, \emph{$(a,b)$-quasi-isometric embedding} of a graph $H$ in a graph $G$ is a map $f\colon V(H)\rightarrow V(G)$ such that for  $u,v\in V(H)$, $\frac{1}{a}\distG{H}{u}{v}+b\leq \distG{G}{f(a)}{f(b)} \leq a.\distG{H}{u}{v}+b$.
