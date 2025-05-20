@@ -50,32 +50,7 @@
 \newcommand{\dist}[2]{\mathsf{d}\left(#1,#2\right)}
 \newcommand{\distG}[3]{\mathsf{d}_{#1}\left(#2,#3\right)}
 
-\newcommand{\cdiam}[2]{\Delta_{#1}\left(#2\right)}
-\newcommand{\parent}[1]{p\left(#1\right)}
-\newcommand{\anticp}[2]{A_{#1}\left(#2\right)}
-\newcommand{\hyp}[1]{hb\left(#1\right)}
-\newcommand{\slim}[1]{sl\left(#1\right)}
-\newcommand{\semiso}[2]{#2_{#1}}
-\newcommand{\semisonumber}[1]{sic\left(#1\right)}
-\newcommand{\ipcor}[2]{ipco\left(\overrightarrow{#2_{#1}}\right)}
-\newcommand{\PC}{\textsc{Path Cover}\xspace}
-\newcommand{\DP}{\textsc{Disjoint Paths}\xspace}
-\newcommand{\DSP}{\textsc{Disjoint Shortest Paths}\xspace}
-\newcommand{\IPP}{\textsc{Isometric Path Partition}\xspace}
-\newcommand{\SGS}{\textsc{Strong Geodetic Set}\xspace}
-\newcommand{\GS}{\textsc{Geodetic Set}\xspace}
-\newcommand{\PART}[1]{\textsc{#1-Partition}\xspace}
-\newcommand{\IPART}[1]{\textsc{Induced #1-Partition}\xspace}
-\newcommand{\IPATHCV}{\textsc{Induced Path Cover}\xspace}
-\newcommand{\MONOSET}{\textsc{Monophonic Set}\xspace}
-\newcommand{\ipac}[1]{ipacc\left(#1\right)}
-\newcommand{\ipco}[1]{ipco\left(#1\right)}
-\newcommand{\sipco}[1]{sipco\left(#1\right)}
-\newcommand{\wipco}[1]{wipco\left(#1\right)}
-\newcommand{\lac}[1]{\beta\left(#1\right)}
-\newcommand{\set}[1]{\left\{#1\right\}}
-\newcommand{\treelength}[1]{tl\left(#1\right)}
-\newcommand{\ie}{\textit{i.e.\xspace}}
+
 
 \newcommand{\subpath}[3]{#1\left( #2,#3 \right)}
 
@@ -166,14 +141,18 @@
  	Is it possible to use \Cref{lem:series-parallel} to show that $K_4$-asymptotic minor free graphs admit a quasi-isometry with additive distortion on $K_4$-minor free graphs?
  \end{Question}
  
- For integers $a\geq 1,b\geq 0$, \emph{$(a,b)$-quasi-isometric embedding} of a graph $H$ in a graph $G$ is a map $f\colon V(H)\rightarrow V(G)$ such that for  $u,v\in V(H)$, $\frac{1}{a}\distG{H}{u}{v}+b\leq \distG{G}{f(a)}{f(b)} \leq a.\distG{H}{u}{v}+b$.
- A graph class $\cal G$ contains a graph $H$, as a \emph{quasi-isometric minor} if for all $a\geq 1,b\geq 0$ there is a graph $G\in \mathcal{G}$ such that there is a  $(a,b)$-quasi-isometric embedding of $H$ in $G$. 
+ For integers $a\geq 1,b\geq 0$, \emph{$(a,b)$-quasi-isometric embedding} of a graph $H$ in a graph $G$ is a map $f\colon V(G)\rightarrow V(H)$ such that for  $u,v \in V(H)$, $\frac{1}{a}\distG{H}{u}{v}-b\leq \distG{G}{f(a)}{f(b)} \leq a.\distG{H}{u}{v}+b$.
+% A graph class $\cal G$ contains a graph $H$, as a \emph{quasi-isometric minor} if for all $a\geq 1,b\geq 0$ there is a graph $G\in \mathcal{G}$ such that there is a  $(a,b)$-quasi-isometric embedding of $H$ in $G$. 
+ 
+%Not very clear. What I mean by the definitions.
  
  \begin{Question}
- 	For an integer $k\geq 3$, characterise graphs that does not contain a cycle of order $k$ as a quasi-isometric minor.
+ 	For an integers $a\geq 1,b\geq 0$ and $k\rightarrow\infty$, characterise graphs $G_k$ that does not contain a $(a,b)$-quasi-isometric embedding cycle of order $k$. 
  \end{Question}
  
-  For integers $a\geq 1,b\geq 0$, an $\quasipath{a}{b}$ is a graph $G$ that contains an $(a,b)$-quasi-isometric embedding of path. 
+ \todo{Correct the definitions below.}
+ 
+  For integers $a\geq 1,b\geq 0$, an $\quasipath{a}{b}$ in $G$ is a graph $G$ that contains an $(a,b)$-quasi-isometric embedding of path. 
  
  \begin{definition}[Possible generalisations of ipco-1]\label{def:1}
  Strong quasi-isometric path complexity of a graph class $\mathcal{G}$ is the minimum integer $k$, such that for all $a\geq 1,b\geq 0$, there exist integers $A\geq 1,B\geq 0$ such that for all vertex $v\in V(G)$ and $\quasipath{a}{b}$ in $G$, there exists $k$-many $\quasipaths{A}{B}$ in $G$ containing $\{r\}\cup V(P)$. 
