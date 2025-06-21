@@ -134,7 +134,7 @@
   \newcommand{\quasipaths}[2]{(#1,#2)\text{-quasi paths}\xspace}
   
  \begin{lemma}\label{lem:series-parallel}
- 	Let $G$ be a $K_4$-minor free graph, $v$ be any vertex, and $P$ be any isometric path. Then there is an isometric subgraph $H$ of $G$ with bounded pathwidth that contains $P$ and $r$.
+ There is a constant $c$ such that for any $K_4$-minor free graph $G$, $r\in V(G)$, and any isometric path $P$ of $G$, there is an isometric subgraph $H$ of $G$ with  pathwidth at most $c$ that contains $P$ and $r$.
  \end{lemma}
  
  \begin{Question}
@@ -147,22 +147,59 @@
 %Not very clear. What I mean by the definitions.
  
  \begin{Question}
- 	For an integers $a\geq 1,b\geq 0$ and $k\rightarrow\infty$, characterise graphs $G_k$ that does not contain a $(a,b)$-quasi-isometric embedding cycle of order $k$. 
+ 	For an integers $a\geq 1,b\geq 0$ and $k\rightarrow\infty$, characterise graphs $G_k$ that does not contain a $(a,b)$-quasi-isometric embedding cycle of order $k$.  \todo{Please confirm if this is the problem statemenet we are targeting now.}
  \end{Question}
  
- \todo{Correct the definitions below.}
+ Is the above question anyway related to the following conjecture?
  
-  For integers $a\geq 1,b\geq 0$, an $\quasipath{a}{b}$ in $G$ is a graph $G$ that contains an $(a,b)$-quasi-isometric embedding of path. 
+ \begin{conjecture}[\cite{}]
+There is a function $f\colon \mathbb{N} \rightarrow \mathbb{N}$ such that if a connected graph $G$ does not contain a $c$-quasigeodesic $(\geq ck)$-subdivision of $K^3$ for some $c,k \in \mathbb{N}$, then $G$ has radial tree-width at most $f(k)$. \todo{radial tree-width = tree-length. I remember that we agreed that it is not related, but I want to convince myself again that it is unrelated.}
+ \end{conjecture}
  
- \begin{definition}[Possible generalisations of ipco-1]\label{def:1}
- Strong quasi-isometric path complexity of a graph class $\mathcal{G}$ is the minimum integer $k$, such that for all $a\geq 1,b\geq 0$, there exist integers $A\geq 1,B\geq 0$ such that for all vertex $v\in V(G)$ and $\quasipath{a}{b}$ in $G$, there exists $k$-many $\quasipaths{A}{B}$ in $G$ containing $\{r\}\cup V(P)$. 
- \end{definition}
+
  
- \begin{definition}[Possible generalisations of ipco-2]\label{def:2}
- 	``Strong quasi-isometric path cover width'' of a graph class $\mathcal{G}$ is the minimum integer $k$, such that for all $a\geq 1,b\geq 0$, there exist integers $A\geq 1,B\geq 0$ such that for all vertex $v\in V(G)$ and $\quasipath{a}{b}$ in $G$, there exists a graph $H$ in $G$ that contains $\{r\}\cup V(P)$ and admits an $(A,B)$-quasi-isometric embedding in a graph of pathwidth at most $k$. 
- \end{definition}
+% \todo{Correct the definitions below.}
+ 
+%For integers $a\geq 1,b\geq 0$, an $\quasipath{a}{b}$ in $G$ is a graph $G$ that contains an $(a,b)$-quasi-isometric embedding of path. 
+ 
+% \begin{definition}[Possible generalisations of ipco-1]\label{def:1}
+% Strong quasi-isometric path complexity of a graph class $\mathcal{G}$ is the minimum integer $k$, such that for all $a\geq 1,b\geq 0$, there exist integers $A\geq 1,B\geq 0$ such that for all vertex $v\in V(G)$ and $\quasipath{a}{b}$ in $G$, there exists $k$-many $\quasipaths{A}{B}$ in $G$ containing $\{r\}\cup V(P)$. 
+% \end{definition}
+% 
+% \begin{definition}[Possible generalisations of ipco-2]\label{def:2}
+% 	``Strong quasi-isometric path cover width'' of a graph class $\mathcal{G}$ is the minimum integer $k$, such that for all $a\geq 1,b\geq 0$, there exist integers $A\geq 1,B\geq 0$ such that for all vertex $v\in V(G)$ and $\quasipath{a}{b}$ in $G$, there exists a graph $H$ in $G$ that contains $\{r\}\cup V(P)$ and admits an $(A,B)$-quasi-isometric embedding in a graph of pathwidth at most $k$. 
+% \end{definition}
+% 
+% \begin{Question}
+% 	Does \Cref{def:1} imply \Cref{def:2}?
+% \end{Question}
+% 
  
  \begin{Question}
- 	Does \Cref{def:1} imply \Cref{def:2}?
- \end{Question}
+ 	Is there a function $f\colon \mathbb{N}\times \mathbb{N} \rightarrow \mathbb{N}$ such that any graph with degree at most $d$ and strong isometric path complexity at most $k$ have twin-width at most $f(k,d)$?
+ \end{Question} 
+ 
+For hyperbolic graphs with bounded degree, the answer is positive. For $K_{2,t}$-asymptotic minor-free graphs, the answer is positive. 
+
+\section{Proof of \Cref{lem:series-parallel}}
+
+
+For the entirety of this section, let $G$ be a $K_4$-minor free graph, $r$ be a vertex of $G$, and $P$ be an isometric path of $G$. Let $\mathcal{P}$ be a minimum cardinality set of $r$-rooted isometric paths in $G$ that covers $P$ and for any $Q\in \mathcal{P}$, $|V(P)\cap V(Q)|$ is maximized. Let $H$ be the graph induced by the set $\displaystyle\bigcup\limits_{Q\in \mathcal{P}} V(Q)$. First, we prove the following lemma.
+
+\begin{lemma}\label{lem:1st-isometric}
+	If $|\mathcal{Q}| \geq 3$, then $H$ is isometric.
+\end{lemma}
+
+Let $\mathcal{A}$ be the set of pairs of vertices in $H$ whose distance in $H$ is strictly greater than in $G$. Formally, $\mathcal{A}=\{(u,v) \colon \distG{H}{u}{v} \neq \distG{G}{u}{v}  \}$.  For each pair $(u,v)\in \mathcal{A}$, consider an $(u,v)$-isometric path $P_{uv}$ and put in $\mathcal{B}$. Let $H^*$ be the subgraph of $G$ induced by $V(H)\cup \displaystyle\bigcup\limits_{Q'\in \mathcal{B}} V(Q')$.  By \Cref{lem:1st-isometric}, if $|\mathcal{Q}|\geq 3$, then $H=H^*$. We prove the following lemma.
+
+\begin{lemma}\label{lem:2nd-isometric}
+	The graph $H^*$ is isometric.
+\end{lemma}
+
+Now we prove an upper bound on the pathwidth of $H^*$.
+
+\begin{lemma}
+	The pathwidth of $H^*$ is at most $c$. \todo{I thought that the pathwidth is $2$, but not sure anymore. It should be constant though. }
+\end{lemma}
+
 \end{document}
