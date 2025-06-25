@@ -156,6 +156,12 @@
 There is a function $f\colon \mathbb{N} \rightarrow \mathbb{N}$ such that if a connected graph $G$ does not contain a $c$-quasigeodesic $(\geq ck)$-subdivision of $K^3$ for some $c,k \in \mathbb{N}$, then $G$ has radial tree-width at most $f(k)$. \todo{radial tree-width = tree-length. I remember that we agreed that it is not related, but I want to convince myself again that it is unrelated.}
  \end{conjecture}
  
+ The following could be true.
+ 
+ \begin{lemma}\label{lem:cycle}
+ 	There is a function $f\colon \mathbb{N}\times \mathbb{N} \times \mathbb{N} \rightarrow \mathbb{N}$ such that a graph $G$  does not contain a $(a,b)$-quasi-isometric embedding cycle of order $k$ if and only if $G$ is quasi-isometric to a graph of girth at least $f(k,a,b)$.
+ \end{lemma}
+
 
  
 % \todo{Correct the definitions below.}
@@ -181,10 +187,15 @@ There is a function $f\colon \mathbb{N} \rightarrow \mathbb{N}$ such that if a c
  
 For hyperbolic graphs with bounded degree, the answer is positive. For $K_{2,t}$-asymptotic minor-free graphs, the answer is positive. 
 
-\section{Thoughts on \Cref{quest:forbid-cycle}}
+\section{Proof for \Cref{lem:cycle}}
+
 
 \begin{itemize}
-	\item Is it true that, graphs with girth sufficiently larger than $k,a,b$, does not contain an $(a,b)$-isometric embedding of a cycle of length $k$?  
+	\item Graphs with girth sufficiently larger than $k,a,b$, does not contain an $(a,b)$-isometric embedding of a cycle of length $k$. 
+	The proof could use the fact that locally the target looks like a tree.
+	  
+	
+	\item For the other direction consider the distance $k$-independent set. 
 \end{itemize}
 
 \section{Proof of \Cref{lem:series-parallel}}
@@ -210,7 +221,9 @@ Now we prove an upper bound on the pathwidth of $H^*$.
 \begin{lemma}
 	The pathwidth of $H^*$ is at most $c$. \todo{I thought that the pathwidth is $2$, but not sure anymore. It should be constant though. }
 \end{lemma}
-
+\begin{proof}
+	Forbid a fixed binary tree as a minor.
+\end{proof}
 \bibliographystyle{plain}
 \bibliography{references}
 \end{document}
