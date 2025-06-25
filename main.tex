@@ -134,7 +134,7 @@
   \newcommand{\quasipaths}[2]{(#1,#2)\text{-quasi paths}\xspace}
   
  \begin{lemma}\label{lem:series-parallel}
- There is a constant $c$ such that for any $K_4$-minor free graph $G$, $r\in V(G)$, and any isometric path $P$ of $G$, there is an isometric subgraph $H$ of $G$ with  pathwidth at most $c$ that contains $P$ and $r$.
+ There is a constant $c$ such that for any $K_4$-minor free graph $G$, $r\in V(G)$, and any isometric path $P$ of $G$, there is an isometric subgraph $H$ of $G$ with  pathwidth at most $c$ that contains $P$ and $r$. \todo{I am writing the proof which turned out to be a little more complicated than previously thought.}
  \end{lemma}
  
  \begin{Question}
@@ -146,13 +146,13 @@
  
 %Not very clear. What I mean by the definitions.
  
- \begin{Question}
+ \begin{Question}\label{quest:forbid-cycle}
  	For an integers $a\geq 1,b\geq 0$ and $k\rightarrow\infty$, characterise graphs $G_k$ that does not contain a $(a,b)$-quasi-isometric embedding cycle of order $k$.  \todo{Please confirm if this is the problem statemenet we are targeting now.}
  \end{Question}
  
  Is the above question anyway related to the following conjecture?
  
- \begin{conjecture}[\cite{}]
+ \begin{conjecture}[\cite{albrechtsen2023structural}]
 There is a function $f\colon \mathbb{N} \rightarrow \mathbb{N}$ such that if a connected graph $G$ does not contain a $c$-quasigeodesic $(\geq ck)$-subdivision of $K^3$ for some $c,k \in \mathbb{N}$, then $G$ has radial tree-width at most $f(k)$. \todo{radial tree-width = tree-length. I remember that we agreed that it is not related, but I want to convince myself again that it is unrelated.}
  \end{conjecture}
  
@@ -181,16 +181,25 @@ There is a function $f\colon \mathbb{N} \rightarrow \mathbb{N}$ such that if a c
  
 For hyperbolic graphs with bounded degree, the answer is positive. For $K_{2,t}$-asymptotic minor-free graphs, the answer is positive. 
 
+\section{Thoughts on \Cref{quest:forbid-cycle}}
+
+\begin{itemize}
+	\item Is it true that, graphs with girth sufficiently larger than $k,a,b$, does not contain an $(a,b)$-isometric embedding of a cycle of length $k$?  
+\end{itemize}
+
 \section{Proof of \Cref{lem:series-parallel}}
 
 
 For the entirety of this section, let $G$ be a $K_4$-minor free graph, $r$ be a vertex of $G$, and $P$ be an isometric path of $G$. Let $\mathcal{P}$ be a minimum cardinality set of $r$-rooted isometric paths in $G$ that covers $P$ and for any $Q\in \mathcal{P}$, $|V(P)\cap V(Q)|$ is maximized. Let $H$ be the graph induced by the set $\displaystyle\bigcup\limits_{Q\in \mathcal{P}} V(Q)$. First, we prove the following lemma.
 
 \begin{lemma}\label{lem:1st-isometric}
-	If $|\mathcal{Q}| \geq 3$, then $H$ is isometric.
+	If $|\mathcal{Q}| \geq 5$, then $H$ is isometric.
 \end{lemma}
+\begin{proof}
+	Suppose $H$ is not isometric. Then, there exists $u,v\in V(H)$ such that $\distG{H}{u}{v} \neq \distG{G}{u}{v}$. Let $Q_u,Q_v \in \mathcal{Q}$ be isometric paths that contain $u$ and $v$, respectively. Since both $Q_u$ and $Q_v$ are isometric, it follows that $Q_u\neq Q_v$. Observe that, there must exist an $(u,v)$-isometric path $P$ in $G$ such that $V(P)\cap V(H)=\{u,v\}$ and $E(H)\cap E(P)=\emptyset$. \todo{Complete}
+\end{proof}
 
-Let $\mathcal{A}$ be the set of pairs of vertices in $H$ whose distance in $H$ is strictly greater than in $G$. Formally, $\mathcal{A}=\{(u,v) \colon \distG{H}{u}{v} \neq \distG{G}{u}{v}  \}$.  For each pair $(u,v)\in \mathcal{A}$, consider an $(u,v)$-isometric path $P_{uv}$ and put in $\mathcal{B}$. Let $H^*$ be the subgraph of $G$ induced by $V(H)\cup \displaystyle\bigcup\limits_{Q'\in \mathcal{B}} V(Q')$.  By \Cref{lem:1st-isometric}, if $|\mathcal{Q}|\geq 3$, then $H=H^*$. We prove the following lemma.
+Let $\mathcal{A}$ be the set of pairs of vertices in $H$ whose distance in $H$ is strictly greater than in $G$. Formally, $\mathcal{A}=\{(u,v) \colon \distG{H}{u}{v} \neq \distG{G}{u}{v}  \}$.  For each pair $(u,v)\in \mathcal{A}$, consider an $(u,v)$-isometric path $P_{uv}$ and put in $\mathcal{B}$. Let $H^*$ be the subgraph of $G$ induced by $V(H)\cup \displaystyle\bigcup\limits_{Q'\in \mathcal{B}} V(Q')$.  By \Cref{lem:1st-isometric}, if $|\mathcal{Q}|\geq 5$, then $H=H^*$. We prove the following lemma.
 
 \begin{lemma}\label{lem:2nd-isometric}
 	The graph $H^*$ is isometric.
@@ -202,4 +211,6 @@ Now we prove an upper bound on the pathwidth of $H^*$.
 	The pathwidth of $H^*$ is at most $c$. \todo{I thought that the pathwidth is $2$, but not sure anymore. It should be constant though. }
 \end{lemma}
 
+\bibliographystyle{plain}
+\bibliography{references}
 \end{document}
