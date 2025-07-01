@@ -145,24 +145,27 @@
 % A graph class $\cal G$ contains a graph $H$, as a \emph{quasi-isometric minor} if for all $a\geq 1,b\geq 0$ there is a graph $G\in \mathcal{G}$ such that there is a  $(a,b)$-quasi-isometric embedding of $H$ in $G$. 
  
 %Not very clear. What I mean by the definitions.
+% 
+% \begin{Question}\label{quest:forbid-cycle}
+% 	For an integers $a\geq 1,b\geq 0$ and $k\rightarrow\infty$, characterise graphs $G_k$ that does not contain a $(a,b)$-quasi-isometric embedding cycle of order $k$.  \todo{Please confirm if this is the problem statemenet we are targeting now.}
+% \end{Question}
  
- \begin{Question}\label{quest:forbid-cycle}
- 	For an integers $a\geq 1,b\geq 0$ and $k\rightarrow\infty$, characterise graphs $G_k$ that does not contain a $(a,b)$-quasi-isometric embedding cycle of order $k$.  \todo{Please confirm if this is the problem statemenet we are targeting now.}
- \end{Question}
+  \begin{theorem}\label{lem:cycle}
+ 	There is a function $f\colon \mathbb{N}\times \mathbb{N} \times \mathbb{N} \rightarrow \mathbb{N}$ such that a graph $G$  does not contain any $(a,b)$-quasi-isometric embedding of $C_k$ if and only if $G$ is quasi-isometric to a graph of girth at least $f(k,a,b)$.
+ \end{theorem}
  
- Is the above question anyway related to the following conjecture?
+ Is the above theorem anyway related to the following conjecture?
  
  \begin{conjecture}[\cite{albrechtsen2023structural}]
 There is a function $f\colon \mathbb{N} \rightarrow \mathbb{N}$ such that if a connected graph $G$ does not contain a $c$-quasigeodesic $(\geq ck)$-subdivision of $K^3$ for some $c,k \in \mathbb{N}$, then $G$ has radial tree-width at most $f(k)$. \todo{radial tree-width = tree-length. I remember that we agreed that it is not related, but I want to convince myself again that it is unrelated.}
  \end{conjecture}
  
- The following could be true.
- 
- \begin{lemma}\label{lem:cycle}
- 	There is a function $f\colon \mathbb{N}\times \mathbb{N} \times \mathbb{N} \rightarrow \mathbb{N}$ such that a graph $G$  does not contain a $(a,b)$-quasi-isometric embedding cycle of order $k$ if and only if $G$ is quasi-isometric to a graph of girth at least $f(k,a,b)$.
- \end{lemma}
 
+\begin{Question}
+	What is the characterisation of a graph that does not contain $(a,b)$-quasi-isometric embedding of a tree $T$?
+\end{Question}
 
+Is the above question interesting?
  
 % \todo{Correct the definitions below.}
  
@@ -181,13 +184,18 @@ There is a function $f\colon \mathbb{N} \rightarrow \mathbb{N}$ such that if a c
 % \end{Question}
 % 
  
- \begin{Question}
- 	Is there a function $f\colon \mathbb{N}\times \mathbb{N} \rightarrow \mathbb{N}$ such that any graph with degree at most $d$ and strong isometric path complexity at most $k$ have twin-width at most $f(k,d)$?
- \end{Question} 
- 
-For hyperbolic graphs with bounded degree, the answer is positive. For $K_{2,t}$-asymptotic minor-free graphs, the answer is positive. 
+% \begin{Question}
+% 	Is there a function $f\colon \mathbb{N}\times \mathbb{N} \rightarrow \mathbb{N}$ such that any graph with degree at most $d$ and strong isometric path complexity at most $k$ have twin-width at most $f(k,d)$?
+% \end{Question} 
+% 
+%For hyperbolic graphs with bounded degree, the answer is positive. For $K_{2,t}$-asymptotic minor-free graphs, the answer is positive. 
+%
+
+\newpage
+
 
 \section{Proof for \Cref{lem:cycle}}
+
 
 
 \begin{itemize}
