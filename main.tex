@@ -228,16 +228,19 @@ For integers $a,b,k$ and a graph $G$ with no $(a,b)$-quasi-isometric embedding o
 	
 	\begin{itemize}
 		
-		\item Suppose $G$ contains $(a,b)$-quasi-isometric embedding of $C_k$.  First observe that the $C_k$ must be mapped to a subgraph of $G$ whose girth depends on $k,a,b$. Define $k'$ to be much lasrger than this girth. 
+		\item Suppose for contradiction that $G$ contains $(a,b)$-quasi-isometric embedding of $C_k$.  First observe that the $C_k$ must be mapped to a subgraph $S$ of $G$ whose diameter depends on $k,a,b$. In fact, we should probably shopw that it will contain a cycle metric of large diameter.  Define $k'$ to be much larger than this diameter. 
 		
-		\item Consider a vertex $v$ of $H$ and a ball $B_v$ around $v$ whose radius is a function of $k,a,b$. 
+		\item Since $S$ has small diameter, it must be mapped within a bounded radius ball in $H$.
+		  
+		\item Consider a vertex $v$ of $H$ and a ball $B_v$ around $v$ of radius that depends appropriately on $k,a,b$. 
 		
-		\item Since $k'$ is much larger, the graph $H'$ induced by $B_v$ is a tree. 
+		\item Since $k'$ is much larger, the subgraph $H'$ of $H$ induced by $B_v$ is a tree. 
 		
 		\item Let us look at the vertices of $G$ which are mapped to close to the vertices of $B_v$. Let us call this set $S$.
 		
-		\item Define $k'$ in such a way that we can infer the metric $(S,G)$ to be a tree metric and hence cannot embed a cycle metric with small distortion.
+		\item Define $k'$ in such a way that we can infer the metric $(S,G)$ to be a tree metric and hence cannot embed a cycle metric of large diameter with small distortion.
 		
+		\item Adjust the quasi-isometry between $G$ and $H$ appropriately so that the distortion.
 		\item This contradicts first item. 
 	\end{itemize}
 \end{proof}
