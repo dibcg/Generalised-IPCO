@@ -159,14 +159,13 @@
  \begin{conjecture}[\cite{albrechtsen2023structural}]
 There is a function $f\colon \mathbb{N} \rightarrow \mathbb{N}$ such that if a connected graph $G$ does not contain a $c$-quasigeodesic $(\geq ck)$-subdivision of $K^3$ for some $c,k \in \mathbb{N}$, then $G$ has radial tree-width at most $f(k)$. \todo{radial tree-width = tree-length. I remember that we agreed that it is not related, but I want to convince myself again that it is unrelated.}
  \end{conjecture}
- 
 
-\begin{Question}
-	What is the characterisation of a graph that does not contain $(a,b)$-quasi-isometric embedding of a tree $T$?
-\end{Question}
 
-Is the above question interesting?
- 
+	What is the characterisation of a graph that does not contain $(a,b)$-quasi-isometric embedding of a tree $T$? Is the above question interesting? AIn general what is the characterisation of a graph that does not contain $(a,b)$-quasi-isometric embedding of a graph $H$ whsoe diameter is much larger than $a,b$? 
+
+\begin{conjecture}\label{conj:too-general}
+ For  integers $a,b$ and a graph$H$ with diameter $k>> \max\{a,b\}$, a graph $G$ does not contain $(a,b)$-quasi-isometric embedding of $H$ if and only if $G$ is quasi-isometric to an $H$-free graph. (in the induced sense) \todo{This is rater a question !! }
+\end{conjecture} 
 % \todo{Correct the definitions below.}
  
 %For integers $a\geq 1,b\geq 0$, an $\quasipath{a}{b}$ in $G$ is a graph $G$ that contains an $(a,b)$-quasi-isometric embedding of path. 
@@ -196,15 +195,57 @@ Is the above question interesting?
 
 \section{Proof for \Cref{lem:cycle}}
 
+We prove this theorem in the following two steps. 
 
+\begin{lemma}
+For integers $a,b,k$ and a graph $G$ with no $(a,b)$-quasi-isometric embedding of $C_k$,  there is an integer $k'$ and a graph $H$ such that the girth of $H$ is at least $k'$ and $G$ is quasi-isometric to $H$.
+\end{lemma}
 
-\begin{itemize}
-	\item Graphs with girth sufficiently larger than $k,a,b$, does not contain an $(a,b)$-isometric embedding of a cycle of length $k$. 
-	The proof could use the fact that locally the target looks like a tree.
-	  
+\begin{proof}
+	For this direction use distance independent set. 
 	
-	\item For the other direction consider the distance $k$-independent set. 
-\end{itemize}
+	\begin{itemize}
+		\item Consider a maximum distance $2a$-independent set $S$.
+		 
+		 \item Observe that the  vertices in $S$ are close to each other in $G$. Use this to create $H$.
+		 
+		 \item Now map the vertices of $G$ to $H$ to its closest neighbor in $H$. 
+		 
+		 \item Observe that it is indeed a quasi-isometry.
+		 
+		 \item If $H$ has girth comparable to $k$, then $G$ has an $(a,b)$-quasi-isometric embedding of $C_k$, a contradiction.
+	\end{itemize}
+\end{proof}
+
+
+\begin{lemma}
+	For integers $a,b,k$ there is an integer $k'$ such that if a graph $G$ is quasi-isometric to a graph $H$ with girth at least $k'$, then $G$ does not contain $(a,b)$-quasi-isometric embedding of $C_k$. 
+\end{lemma}
+
+\begin{proof}
+	Graphs with girth sufficiently larger than $k,a,b$, does not contain an $(a,b)$-isometric embedding of a cycle of length $k$. 
+	The proof could use the fact that locally the target looks like a tree. Since cycles are not quasi-isometric to a tree, we arrive at a contradiction.
+	
+	\begin{itemize}
+		
+		\item Suppose $G$ contains $(a,b)$-quasi-isometric embedding of $C_k$.  First observe that the $C_k$ must be mapped to a subgraph of $G$ whose girth depends on $k,a,b$. Define $k'$ to be much lasrger than this girth. 
+		
+		\item Consider a vertex $v$ of $H$ and a ball $B_v$ around $v$ whose radius is a function of $k,a,b$. 
+		
+		\item Since $k'$ is much larger, the graph $H'$ induced by $B_v$ is a tree. 
+		
+		\item Let us look at the vertices of $G$ which are mapped to close to the vertices of $B_v$. Let us call this set $S$.
+		
+		\item Define $k'$ in such a way that we can infer the metric $(S,G)$ to be a tree metric and hence cannot embed a cycle metric with small distortion.
+		
+		\item This contradicts first item. 
+	\end{itemize}
+\end{proof}
+
+
+Will it be wrong to follow the same strategy for answering \Cref{conj:too-general}?
+
+\newpage 
 
 \section{Proof of \Cref{lem:series-parallel}}
 
