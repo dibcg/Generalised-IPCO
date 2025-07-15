@@ -128,20 +128,43 @@
 
 \maketitle
 
+\section{Main definitions}
+
+\begin{definition}
+	
+	An \emph{$(M,A)$-quasi-isometry} between graphs $G$ and $H$ is a map $f\colon V(G)\rightarrow V(H)$ such that the following holds for fixed constants $M\geq 1, A\geq 0$, \begin{enumerate*}[label=(\alph*)]
+		\item $M^{-1}\dist{x}{y}-A  \leq \dist{f(x)}{f(y)} \leq M\dist{x}{y}+A$ for every $x,y\in V(G)$; and \item for every $z\in V(H)$ there is $x\in V(G)$ such that $\dist{z}{f(x)}\leq A$. 
+	\end{enumerate*}
+	The graphs $G$ and $H$ are \emph{quasi-isometric} if there exists a quasi-isometric map $f$ between $V(G)$ and $V(H)$.
+\end{definition}
+
+
+ \begin{definition}
+	For integers $a\geq 1,b\geq 0$, \emph{$(a,b)$-quasi-isometric embedding} of a graph $H$ in a graph $G$ is a map $f\colon V(G)\rightarrow V(H)$ such that for  $u,v \in V(H)$, $\frac{1}{a}\distG{H}{u}{v}-b\leq \distG{G}{f(a)}{f(b)} \leq a.\distG{H}{u}{v}+b$.
+\end{definition}
+
+
+
 \section{Directions}
  
  \newcommand{\quasipath}[2]{(#1,#2)\text{-quasi path}\xspace}
   \newcommand{\quasipaths}[2]{(#1,#2)\text{-quasi paths}\xspace}
   
+  
+  
+  
  \begin{lemma}\label{lem:series-parallel}
  There is a constant $c$ such that for any $K_4$-minor free graph $G$, $r\in V(G)$, and any isometric path $P$ of $G$, there is an isometric subgraph $H$ of $G$ with  pathwidth at most $c$ that contains $P$ and $r$. \todo{I am writing the proof which turned out to be a little more complicated than previously thought.}
  \end{lemma}
+ 
+ 
+ 
  
  \begin{Question}
  	Is it possible to use \Cref{lem:series-parallel} to show that $K_4$-asymptotic minor free graphs admit a quasi-isometry with additive distortion on $K_4$-minor free graphs?
  \end{Question}
  
- For integers $a\geq 1,b\geq 0$, \emph{$(a,b)$-quasi-isometric embedding} of a graph $H$ in a graph $G$ is a map $f\colon V(G)\rightarrow V(H)$ such that for  $u,v \in V(H)$, $\frac{1}{a}\distG{H}{u}{v}-b\leq \distG{G}{f(a)}{f(b)} \leq a.\distG{H}{u}{v}+b$.
+
 % A graph class $\cal G$ contains a graph $H$, as a \emph{quasi-isometric minor} if for all $a\geq 1,b\geq 0$ there is a graph $G\in \mathcal{G}$ such that there is a  $(a,b)$-quasi-isometric embedding of $H$ in $G$. 
  
 %Not very clear. What I mean by the definitions.
@@ -149,10 +172,10 @@
 % \begin{Question}\label{quest:forbid-cycle}
 % 	For an integers $a\geq 1,b\geq 0$ and $k\rightarrow\infty$, characterise graphs $G_k$ that does not contain a $(a,b)$-quasi-isometric embedding cycle of order $k$.  \todo{Please confirm if this is the problem statemenet we are targeting now.}
 % \end{Question}
- 
-  \begin{theorem}\label{lem:cycle}
- 	There is a function $f\colon \mathbb{N}\times \mathbb{N} \times \mathbb{N} \rightarrow \mathbb{N}$ such that a graph $G$  does not contain any $(a,b)$-quasi-isometric embedding of $C_k$ (or at least $C_k$) if and only if $G$ is quasi-isometric to a graph of girth at least $f(k,a,b)$.
- \end{theorem}
+  \begin{conjecture}\label{lem:cycle}
+ 	There is a function $f\colon \mathbb{N}\times \mathbb{N} \times \mathbb{N} \rightarrow \mathbb{N}$ such that a graph $G$  does not contain any $(a,b)$-quasi-isometric embedding of $C_k$ if and only if $G$ is quasi-isometric to a graph of girth at least $f(k,a,b)$.
+ \end{conjecture}
+
  
  Is the above theorem anyway related to the following conjecture?
  
@@ -162,10 +185,17 @@ There is a function $f\colon \mathbb{N} \rightarrow \mathbb{N}$ such that if a c
 
 
 	What is the characterisation of a graph that does not contain $(a,b)$-quasi-isometric embedding of a tree $T$? Is the above question interesting? AIn general what is the characterisation of a graph that does not contain $(a,b)$-quasi-isometric embedding of a graph $H$ whsoe diameter is much larger than $a,b$? 
+<<<<<<< HEAD
 
 \begin{conjecture}\label{conj:too-general}
  For  integers $a,b$ and a graph $H$ with diameter $k>> \max\{a,b\}$, a graph $G$ does not contain $(a,b)$-quasi-isometric embedding of $H$ if and only if $G$ is quasi-isometric to an $H$-free graph. (in the induced sense) \todo{This is rater a question !! }
 \end{conjecture} 
+=======
+%
+%\begin{conjecture}\label{conj:too-general}
+% For  integers $a,b$ and a graph$H$ with diameter $k>> \max\{a,b\}$, a graph $G$ does not contain $(a,b)$-quasi-isometric embedding of $H$ if and only if $G$ is quasi-isometric to an $H$-free graph. (in the induced sense) \todo{This is rater a question !! }
+%\end{conjecture} 
+>>>>>>> 2ae209c25c52435528f5d58e8eb48940aae93ca2
 % \todo{Correct the definitions below.}
  
 %For integers $a\geq 1,b\geq 0$, an $\quasipath{a}{b}$ in $G$ is a graph $G$ that contains an $(a,b)$-quasi-isometric embedding of path. 
@@ -191,6 +221,21 @@ There is a function $f\colon \mathbb{N} \rightarrow \mathbb{N}$ such that if a c
 %
 
 \newpage
+
+\section{Preliminary lemmas}
+
+\newcommand{\IndGraph}[2]{{#1}_{#2}}
+For an integer $k\geq 2$ and a graph $G$, a set $S\subseteq V(G)$ is a \emph{distance-$k$ independent set} if for any $u,v\in S$, the distance between $u,v$ in $G$ is at least $k$. The graph $\IndGraph{G}{S}$ has vertex set $S$, and two vertices $u,v\in S$ are adjacent in $\IndGraph{G}{S}$ if $\distG{G}{u}{v}\leq 2k+1$. 
+
+\begin{lemma}
+Let $G$ be a graph, $k\geq 2$ be an integer, and $S$ be a maximum distance-$k$ independent set $S$ of $G$. Then, there is a $(2k+1,1)$-quasi-isometric map between $V(G)$ to $V(H)$ where $H\coloneqq \IndGraph{G}{S}$.
+\end{lemma}
+\begin{proof}
+	For a vertex $v\in V(G)$, let $f(v)$ denote a vertex in $S$ which is closest to $v$ in $G$. Formally, $f(v)=z$ where $z\in S, \dist{G}{v}{z}=\min\{\distG{G}{v}{z'}\colon z'\in S\}$. We shall show that, $f$ is the desired map. First notice that, for any vertex $v\in V(G)$, $\distG{G}{v}{f(v)} \leq k$. Otherwise, $S\cup \{v\}$ is a larger distance-$k$-independent set. Hence, $\distG{G}{u}{v}\leq (2k+1)\cdot \distG{H}{f(u)}{f(v)} + 2k$. 
+	
+	Now consider any edge $uv\in E(G)$ such that $f(u)\not= f(v)$. Observe that, $\distG{G}{f(u)}{f(v)}\leq \distG{G}{f(u)}{u} + \distG{G}{f(v)}{v} + 1$. This implies, $\distG{G}{f(u)}{f(v)}\leq 2k+1$, and therefore $f(u)$ must be adjacent to $f(v)$ in $H$. 
+	Now, consider any isometric path $P$ in $G$  and let $P\coloneqq u_1u_2\ldots u_t$. Above arguments imply, $W\coloneqq f(u_1)f(u_2)\ldots f(u_t)$ is a walk in $H$ consisting of at most $t$ many distinct vertices and therefore, $\distG{H}{f(u_1)}{f(u_t)}\leq \distG{G}{u_1}{u_t}$. Hence, for any two vertices $u,v\in V(G)$ we have $\frac{1}{2k+1}\distG{G}{u}{v}-1 \leq \distG{H}{f(u)}{f(v)} \leq \distG{G}{u}{v}$.
+\end{proof}
 
 
 \section{Proof for \Cref{lem:cycle}}
